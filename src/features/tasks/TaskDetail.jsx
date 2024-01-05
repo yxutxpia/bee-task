@@ -24,7 +24,7 @@ import Select from '../../ui/Select';
 import PageContainer from '../../ui/PageContainer';
 import ConfirmComplete from '../../ui/ConfirmComplete';
 
-const HeadingWrapper = styled.div`
+const HeadingWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;

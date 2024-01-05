@@ -35,7 +35,7 @@ const Textarea = styled.textarea`
   padding: 16px;
   line-height: 1.6;
   border-radius: var(--round-sm);
-  background-color: var(--color-pale-purple-100);
+  background-color: var(--color-primary-50);
   transition: background-color var(--transition);
 `;
 

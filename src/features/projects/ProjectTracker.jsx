@@ -45,12 +45,13 @@ function ProjectTracker() {
   const completeProjects = projects?.filter(project => project.is_finished);
   const inProgressProjects = projects?.filter(
     project =>
-      !project.is_finished && project.tasks.filter(task => task.complete).length
+      !project.is_finished &&
+      project.tasks.filter(task => task.complete)?.length
   );
   const notStartedProjects = projects?.filter(
     project =>
       project.tasks.length ===
-        project.tasks.filter(task => !task.complete).length &&
+        project.tasks.filter(task => !task.complete)?.length &&
       !project.is_finished
   );
 
@@ -78,14 +79,14 @@ function ProjectTracker() {
           },
         },
         data: [
-          { value: notStartedProjects.length, name: 'Not started' },
-          { value: inProgressProjects.length, name: 'In progress' },
-          { value: completeProjects.length, name: 'Finished' },
+          { value: notStartedProjects?.length, name: 'Not started' },
+          { value: inProgressProjects?.length, name: 'In progress' },
+          { value: completeProjects?.length, name: 'Finished' },
           {
             value:
-              notStartedProjects.length +
-              inProgressProjects.length +
-              completeProjects.length,
+              notStartedProjects?.length +
+              inProgressProjects?.length +
+              completeProjects?.length,
             itemStyle: {
               color: 'none',
               decal: {

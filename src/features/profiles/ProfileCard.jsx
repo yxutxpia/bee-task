@@ -36,6 +36,7 @@ const Username = styled.h2`
   display: flex;
   align-items: center;
   gap: 4px;
+  margin-bottom: 3px;
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-extrabold);
   transition: color var(--transition);

@@ -27,7 +27,7 @@ import StatusBadge from '../../ui/StatusBadge';
 import { usePoints } from '../../hooks/usePoints';
 import { PROJECT_FINISH_POINT } from '../../utils/constants';
 
-const HeadingWrapper = styled.div`
+const HeadingWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;

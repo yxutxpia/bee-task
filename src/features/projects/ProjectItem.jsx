@@ -139,7 +139,7 @@ const DueDate = styled.p`
   font-weight: var(--font-weight-bold);
   transition: color var(--transition);
 
-  & div:nth-child(1) {
+  & span:nth-child(1) {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -177,10 +177,10 @@ function ProjectItem({ projectId, project }) {
           <div>
             <ProjectTitle>{name}</ProjectTitle>
             <DueDate>
-              <div>
+              <span>
                 <HiOutlineCalendarDays />
                 <span>{formatDate(due_date)}</span>
-              </div>
+              </span>
               {is_finished && <StatusBadge status="finished" />}
             </DueDate>
           </div>
