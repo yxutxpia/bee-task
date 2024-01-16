@@ -23,7 +23,7 @@ const StyledConfirmComplete = styled.div`
     padding: 24px 36px;
     font-size: 15px;
     text-align: center;
-    line-height: 1.3;
+    line-height: 1.5;
     border-radius: var(--round-sm);
     background-color: var(--color-pale-purple-50);
   }

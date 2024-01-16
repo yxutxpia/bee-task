@@ -10,6 +10,10 @@ const StyledDashboard = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto auto auto;
   gap: 24px;
+
+  @media only screen and (max-width: 720px) {
+    gap: 16px;
+  }
 `;
 
 function Dashboard() {

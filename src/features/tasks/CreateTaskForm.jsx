@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { useMoveBack } from '../../hooks/useMoveBack';
 import { useCreateTask } from '../../hooks/useCreateTask';
@@ -16,7 +16,7 @@ import Button from '../../ui/Button';
 import Checkbox from '../../ui/Checkbox';
 import Select from '../../ui/Select';
 import { useCurrentUser } from '../../hooks/useCurrentUser';
-import { LuCheckCircle, LuCircle } from 'react-icons/lu';
+import { BsFillCheckSquareFill, BsSquare } from 'react-icons/bs';
 
 const StyledCreateTaskForm = styled.form`
   display: flex;
@@ -91,6 +91,19 @@ const StyledPriorityOp = styled.div`
   align-items: center;
   gap: 12px;
   cursor: pointer;
+
+  & > span > svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  ${props =>
+    props.priority &&
+    css`
+      & > span > svg {
+        color: var(--color-primary-500);
+      }
+    `}
 `;
 
 function CreateTaskForm({ taskToUpdate = [{}] }) {
@@ -231,8 +244,12 @@ function CreateTaskForm({ taskToUpdate = [{}] }) {
           {...register('description')}
         ></Textarea>
       </FormRow>
-      <StyledPriorityOp checked={priorityOp} onClick={handlePriority}>
-        <span>{priorityOp ? <LuCheckCircle /> : <LuCircle />}</span>
+      <StyledPriorityOp
+        checked={priorityOp}
+        priority={priorityOp}
+        onClick={handlePriority}
+      >
+        <span>{priorityOp ? <BsFillCheckSquareFill /> : <BsSquare />}</span>
         <p>우선순위로 설정하기</p>
       </StyledPriorityOp>
       <ButtonWrapper>

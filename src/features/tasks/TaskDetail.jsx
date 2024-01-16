@@ -213,7 +213,7 @@ function TaskDetail() {
   ] = task;
 
   function onSubmit(data) {
-    const addPoints = Boolean(formatDaysLeft(due_date, 'count'));
+    const addPoints = formatDaysLeft(due_date, 'count') >= 0;
 
     const updatedTask = {
       is_finished: data.is_finished,

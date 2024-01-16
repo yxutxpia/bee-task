@@ -13,6 +13,10 @@ const StyledSummaryRow = styled.div`
   @media only screen and (max-width: 1210px) {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  @media only screen and (max-width: 720px) {
+    gap: 16px;
+  }
 `;
 
 function SummaryRow() {

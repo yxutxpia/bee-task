@@ -4,6 +4,8 @@ import { Toaster } from 'react-hot-toast';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import { DarkModeProvider } from './context/DarkModeContext';
+import { SidebarToggleProvider } from './context/SidebarToggleContext';
+import { SearchToggleProvider } from './context/SearchToggleContext';
 
 import AppLayout from './ui/AppLayout';
 import Dashboard from './pages/Dashboard';
@@ -22,9 +24,7 @@ import CreateProject from './features/projects/CreateProject';
 import UpdateProject from './features/projects/UpdateProject';
 import ProtectedRoute from './ui/ProtectedRoute';
 import Feedback from './pages/Feedback';
-import { SidebarToggleProvider } from './context/SidebarToggleContext';
 import Setting from './pages/Setting';
-import { SearchToggleProvider } from './context/SearchToggleContext';
 import RedirectProfile from './features/profiles/RedirectProfile';
 import SignOut from './pages/SignOut';
 

@@ -57,7 +57,7 @@ function MonthlyChart() {
     <StyledMonthlyChart>
       <Heading as="h4">Monthly chart</Heading>
       <ResponsiveContainer width="95%" height={280}>
-        <AreaChart data={monthlyTasks}>
+        <AreaChart data={monthlyTasks} style={{ marginLeft: '-15px' }}>
           <CartesianGrid stroke={colors.stroke} strokeDasharray="3 3" />
           <XAxis
             dataKey="name"

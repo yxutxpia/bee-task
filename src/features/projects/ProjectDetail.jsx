@@ -9,9 +9,11 @@ import { useProject } from '../../hooks/useProject';
 import { useMoveBack } from '../../hooks/useMoveBack';
 import { useDeleteProject } from '../../hooks/useDeleteProject';
 import { useUpdateProject } from '../../hooks/useUpdateProject';
+import { usePoints } from '../../hooks/usePoints';
+import { PROJECT_FINISH_POINT } from '../../utils/constants';
 import { formatDate, formatDaysLeft, randomID } from '../../utils/helpers';
-import { HiOutlineCalendarDays, HiMiniCheckCircle } from 'react-icons/hi2';
-import { LuCircle } from 'react-icons/lu';
+import { HiOutlineCalendarDays } from 'react-icons/hi2';
+import { BsFillCheckSquareFill, BsSquare } from 'react-icons/bs';
 
 import Loader from '../../ui/Loader';
 import Heading from '../../ui/Heading';
@@ -24,8 +26,6 @@ import ConfirmDelete from '../../ui/ConfirmDelete';
 import PageContainer from '../../ui/PageContainer';
 import ConfirmComplete from '../../ui/ConfirmComplete';
 import StatusBadge from '../../ui/StatusBadge';
-import { usePoints } from '../../hooks/usePoints';
-import { PROJECT_FINISH_POINT } from '../../utils/constants';
 
 const HeadingWrapper = styled.header`
   display: flex;
@@ -104,7 +104,6 @@ const DueDate = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 8px;
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   border-radius: var(--round-sm);
@@ -241,7 +240,6 @@ function ProjectDetail() {
   const [showForm, setShowForm] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
   const [showComplete, setShowComplete] = useState(false);
-  const [isFinishedCheck, setIsFinishedCheck] = useState(false);
   const [curPoints, setCurPoints] = useState(0);
 
   const { project, isLoading } = useProject();
@@ -293,7 +291,7 @@ function ProjectDetail() {
   }
 
   function onComplete() {
-    const addPoints = Boolean(formatDaysLeft(due_date, 'count'));
+    const addPoints = formatDaysLeft(due_date, 'count') >= 0;
 
     const newProject = {
       is_finished: !is_finished,
@@ -387,7 +385,7 @@ function ProjectDetail() {
           )}
           {is_finished ? (
             <CompleteText>
-              <HiMiniCheckCircle />
+              <BsFillCheckSquareFill />
               <span>마감된 프로젝트입니다</span>
             </CompleteText>
           ) : (
@@ -395,7 +393,7 @@ function ProjectDetail() {
               disabled={is_finished}
               onClick={() => setShowComplete(true)}
             >
-              <LuCircle />
+              <BsSquare />
               <span>프로젝트 마감하기</span>
             </ButtonConfirm>
           )}

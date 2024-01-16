@@ -55,6 +55,8 @@ function ProjectTracker() {
       !project.is_finished
   );
 
+  console.log(notStartedProjects);
+
   const [options, setOptions] = useState({
     color: ['#ECE3CE', '#80BCBD', '#FFC436'],
     tooltip: {

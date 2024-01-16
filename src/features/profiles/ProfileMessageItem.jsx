@@ -70,10 +70,15 @@ const Message = styled.div`
 
 const ButtonDelete = styled.button`
   align-self: flex-start;
+  color: var(--color-danger-500);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
-  transition: color var(--transition);
+  transition: color var(--transition), opacity var(--transition);
   opacity: 0.45;
+
+  &:hover {
+    opacity: 0.75;
+  }
 `;
 
 function ProfileMessageItem({ message }) {
@@ -111,12 +116,12 @@ function ProfileMessageItem({ message }) {
         <Date>{formatMsgDays(date, 'kor')}</Date>
       </Header>
       <Message>{text}</Message>
-      {userId === user?.at(0)?.user_id ||
-        (user_id === user?.at(0)?.user_id && (
-          <ButtonDelete onClick={() => setShowDelete(true)}>
-            삭제하기
-          </ButtonDelete>
-        ))}
+      {(userId === user?.at(0)?.user_id ||
+        user_id === user?.at(0)?.user_id) && (
+        <ButtonDelete onClick={() => setShowDelete(true)}>
+          삭제하기
+        </ButtonDelete>
+      )}
       {showDelete && (
         <ConfirmDelete
           content="메시지를"

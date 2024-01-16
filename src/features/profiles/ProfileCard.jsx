@@ -1,34 +1,51 @@
 import styled from 'styled-components';
 import { useProfileById } from '../../hooks/useProfileById';
 import Loader from '../../ui/Loader';
-import { DEFAULT_AVATAR } from '../../utils/constants';
 import { HiCheckBadge } from 'react-icons/hi2';
 import Avatar from '../../ui/Avatar';
 
 const StyledProfileCard = styled.div`
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  flex-direction: column;
   padding: 32px;
   border-radius: var(--round-md);
   background-color: var(--color-gray-0);
   transition: background-color var(--transition);
 `;
 
+const Background = styled.div`
+  width: 100%;
+  aspect-ratio: 4 / 1;
+  border-radius: var(--round-md);
+  background-color: var(--color-primary-50);
+  transition: background-color var(--transition);
+`;
+
+const BackgroundImg = styled.img`
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+`;
+
 const Profile = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  position: relative;
+  gap: 8px;
+  margin-top: -40px;
+  margin-left: 24px;
 
-  &::before {
-    content: '';
-    width: 72px;
-    height: 4px;
-    position: absolute;
-    top: -32px;
-    left: 0;
-    background-color: var(--color-primary-500);
-    transition: background-color var(--transition);
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: -24px;
+    margin-left: 8px;
+  }
+
+  & > img {
+    border: 8px solid var(--color-gray-0);
+    transition: border-color var(--transition);
   }
 `;
 
@@ -82,24 +99,30 @@ function ProfileCard() {
 
   if (isLoading) return <Loader />;
 
-  const [{ avatar, username, user_id, points, verified }] = profileById;
+  const [{ avatar, username, user_id, points, verified, background_img }] =
+    profileById;
 
   return (
     <StyledProfileCard>
+      <Background>
+        {background_img && <BackgroundImg src={background_img} />}
+      </Background>
       <Profile>
-        <Avatar size={72} avatar={avatar} />
+        <Avatar size={80} avatar={avatar} />
         <div>
-          <Username>
-            <span>{username}</span>
-            {verified && <HiCheckBadge />}
-          </Username>
-          <Id>@{user_id}</Id>
+          <div>
+            <Username>
+              <span>{username}</span>
+              {verified && <HiCheckBadge />}
+            </Username>
+            <Id>@{user_id}</Id>
+          </div>
+          <Points>
+            <span>Points</span>
+            <span>{points}</span>
+          </Points>
         </div>
       </Profile>
-      <Points>
-        <span>Points</span>
-        <span>{points}</span>
-      </Points>
     </StyledProfileCard>
   );
 }

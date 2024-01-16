@@ -12,6 +12,10 @@ const StyledSignOutForm = styled.div`
   border-radius: var(--round-md);
   background-color: var(--color-gray-0);
   transition: background-color var(--transition);
+
+  & > button {
+    align-self: flex-end;
+  }
 `;
 
 const Emoji = styled.div`
@@ -41,6 +45,11 @@ const Checkbox = styled.button`
   align-items: center;
   gap: 8px;
 
+  & > svg {
+    width: 16px;
+    height: 16px;
+  }
+
   ${props =>
     props.confirm &&
     css`
@@ -55,7 +64,7 @@ function SignOutForm() {
 
   function handleClick() {
     if (!confirm) {
-      toast.error('박스를 체크해주세요');
+      toast.error('필수 항목을 체크해주세요');
     }
   }
 
@@ -79,7 +88,7 @@ function SignOutForm() {
         }}
       >
         {confirm ? <BsFillCheckSquareFill /> : <BsSquare />}
-        <span>상기 내용을 모두 확인했습니다.</span>
+        <span>상기 내용을 모두 확인했습니다 *</span>
       </Checkbox>
       <Button type="danger" onClick={handleClick}>
         탈퇴하기

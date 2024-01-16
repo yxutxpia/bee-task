@@ -18,8 +18,6 @@ const GlobalStyles = createGlobalStyle`
   --font-weight-bold: 600;
   --font-weight-extrabold: 700;
 
-  --font-family: 'Inter', 'Pretendard', sans-serif;
-
   --duration: 0.3s;
   --transition: var(--duration) ease;
 
@@ -28,13 +26,6 @@ const GlobalStyles = createGlobalStyle`
   --round-sm: 8px;
   --round-md: 14px;
   --round-lg: 18px;
-
-  /* --color-primary-300: #FFDD8F;
-  --color-primary-400: #FFD36F;
-  --color-primary-500: #F9C755;
-  --color-primary-600: #F2BB3C; */
-
-  /* --color-green-100: #dcfce7; */
 
   --color-card-blue-100: rgba(0, 169, 255, 0.1);
   --color-card-blue-600: #00A9FF;
