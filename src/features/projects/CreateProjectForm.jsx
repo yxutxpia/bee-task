@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
 import { useMoveBack } from '../../hooks/useMoveBack';
-import { useUser } from '../../hooks/useUser';
 import { randomID } from '../../utils/helpers';
 import { HiOutlineTrash } from 'react-icons/hi2';
 
@@ -208,7 +207,7 @@ function CreateProjectForm({ projectToUpdate = [{}] }) {
       ...curTask,
       { id: randomID(), title: task, complete: false },
     ]);
-    console.log(taskList);
+
     setShowTaskInput(false);
     setTask('');
   }
