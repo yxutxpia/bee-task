@@ -76,6 +76,7 @@ function Login() {
             type="text"
             id="email"
             name="email"
+            value="admin@email.com"
             disabled={isLoggingIn}
             {...register('email', {
               required: 'This field is required',
@@ -87,6 +88,7 @@ function Login() {
             type="password"
             id="password"
             name="password"
+            value="pass1234"
             disabled={isLoggingIn}
             {...register('password', {
               required: 'This field is required',
