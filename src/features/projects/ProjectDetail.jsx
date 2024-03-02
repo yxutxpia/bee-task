@@ -375,10 +375,10 @@ function ProjectDetail() {
                     reset();
                   }}
                 >
-                  Cancel
+                  취소
                 </Button>
                 <Button type="primary" disabled={isCreating}>
-                  Add
+                  추가하기
                 </Button>
               </div>
             </Form>
@@ -405,7 +405,7 @@ function ProjectDetail() {
             )}
             {!is_finished && (
               <Button type="linear">
-                <Link to={`/projects/${project_id}/edit`}>편집</Link>
+                <Link to={`/projects/${project_id}/edit`}>편집하기</Link>
               </Button>
             )}
             <Button
@@ -415,7 +415,7 @@ function ProjectDetail() {
                 setShowDelete(true);
               }}
             >
-              삭제
+              삭제하기
             </Button>
           </Footer>
           {showDelete && (

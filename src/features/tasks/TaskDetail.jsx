@@ -343,13 +343,13 @@ function TaskDetail() {
                     setShowModal(show => !show);
                   }}
                 >
-                  삭제
+                  삭제하기
                 </Button>
               </div>
               {!is_finished && (
                 <div>
                   <Button type="linear" disabled={isDeleting || isUpdating}>
-                    <Link to={`/tasks/${task_id}/edit`}>편집</Link>
+                    <Link to={`/tasks/${task_id}/edit`}>편집하기</Link>
                   </Button>
                   <Button type="primary" disabled={isDeleting || isUpdating}>
                     확인

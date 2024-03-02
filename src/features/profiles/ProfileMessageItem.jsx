@@ -1,11 +1,14 @@
+import { useState } from 'react';
+
 import styled from 'styled-components';
+
 import { HiCheckBadge } from 'react-icons/hi2';
 import { formatMsgDays } from '../../utils/helpers';
 import { Link, useParams } from 'react-router-dom';
 import { useCurrentUser } from '../../hooks/useCurrentUser';
-import Avatar from '../../ui/Avatar';
 import { useDeleteMessage } from '../../hooks/useDeleteMessage';
-import { useState } from 'react';
+
+import Avatar from '../../ui/Avatar';
 import ConfirmDelete from '../../ui/ConfirmDelete';
 
 const StyledProfileMessageItem = styled.li`
@@ -14,12 +17,12 @@ const StyledProfileMessageItem = styled.li`
   gap: 24px;
   padding: 32px;
   border-radius: var(--round-sm);
-  background-color: var(--color-gray-0--50);
+  background-color: var(--color-gray-0);
   transition: background-color var(--transition);
 
-  &:hover {
+  /* &:hover {
     background-color: var(--color-gray-0);
-  }
+  } */
 `;
 
 const Header = styled.header`

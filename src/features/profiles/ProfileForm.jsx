@@ -11,12 +11,12 @@ const StyledProfileForm = styled.form`
   gap: 16px;
   padding: 24px;
   border-radius: var(--round-sm);
-  background-color: var(--color-gray-0--50);
+  background-color: var(--color-gray-0);
   transition: background-color var(--transition);
 
-  &:hover {
+  /* &:hover {
     background-color: var(--color-gray-0);
-  }
+  } */
 
   & > button {
     align-self: flex-end;
@@ -35,7 +35,7 @@ const Textarea = styled.textarea`
   padding: 16px;
   line-height: 1.6;
   border-radius: var(--round-sm);
-  background-color: var(--color-primary-50);
+  background-color: var(--color-pale-purple-50);
   transition: background-color var(--transition);
 `;
 
